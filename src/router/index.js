@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DefaultLayout from "../layout/default.vue";
+import AuthLayout from "../layout/auth.vue";
 import { useAuthStore } from "../stores/auth"; // Assuming Pinia store for permissions
 
 const router = createRouter({
@@ -120,9 +121,18 @@ const router = createRouter({
       ],
     },
     {
-      path: "/auth/login",
-      name: "login",
-      component: () => import("../views/auth/login.vue"),
+      path: "/auth",
+      name: "auth",
+      component: AuthLayout,
+      redirect: "/auth/login",
+      children: [
+        {
+          path: "/auth/login",
+          name: "login",
+          component: () => import("../views/auth/login.vue"),
+          meta: { requiresAuth: false },
+        },
+      ],
     },
     {
       path: "/:pathMatch(.*)*",
@@ -138,39 +148,13 @@ router.beforeEach(async (to, from, next) => {
     return next({ name: "default" });
   }
 
-  // // Fetch permissions if not already loaded
-  // if (Object.keys(authStore.permissions).length === 0) {
-  //   await authStore.fetchPermissions();
-  // }
-
-  // // Check if route requires authentication
-  // if (to.meta.requiresAuth) {
-  //   if (!authStore.isAuthenticated) {
-  //     // Redirect to login if not authenticated
-  //     return next({ name: "Login", query: { redirect: to.fullPath } });
-  //   }
-
-  //   // Check permissions if specified in route meta
-  //   if (to.meta.permissions) {
-  //     const hasPermission = to.meta.permissions.every((perm) => {
-  //       const [module, action] = perm.split(":");
-  //       return authStore.hasPermission(module, action);
-  //     });
-
-  //     if (!hasPermission) {
-  //       // Redirect to unauthorized page or home if no permission
-  //       return next({ name: "Home" });
-  //     }
-  //   }
-  // }
   if (to.meta.requiresAuth) {
     if (!authStore.isAuthenticated) {
-      // Redirect to login if not authenticated
+      console.log("redirecting to login" + to.fullPath);
       return next({ name: "login", query: { redirect: to.fullPath } });
     }
   }
 
-  // Proceed to the route
   next();
 });
 

@@ -17,19 +17,6 @@
       <LanguageSwitcher />
     </template>
 
-    <!-- <template #center>
-      <IconField class="">
-        <InputIcon>
-          <i class="pi pi-search" />
-        </InputIcon>
-        <InputText
-          v-model="searchText"
-          @update:model-value="setSearchText"
-          placeholder="Search"
-        />
-      </IconField>
-    </template> -->
-
     <template #end>
       <div class="flex items-center gap-2">
         <Avatar

@@ -29,7 +29,7 @@
       </Card>
     </div>
     <div
-      class="hidden md:block w-full h-full bg-[url(@/assets/login.avif)] bg-contain bg-no-repeat bg-center"
+      class="hidden md:block w-full h-full bg-[url(@/assets/login-1.svg)] bg-contain bg-no-repeat bg-center"
     ></div>
   </div>
 </template>
@@ -42,10 +42,11 @@ import { useApi } from "@/composables/useApi";
 import { Button } from "primevue";
 import { useAuthStore } from "@/stores/auth";
 import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 const { login } = useAuthStore();
 const router = useRouter();
+const route = useRoute();
 
 const loading = ref(false);
 
@@ -60,7 +61,8 @@ const onSubmit = handleSubmit(async (values) => {
   loading.value = true;
   try {
     const res = await login(values);
-    router.push("/");
+    const redirectPath = route.query.redirect || { name: "default" };
+    router.push(redirectPath);
   } catch (err) {
   } finally {
     loading.value = false;
