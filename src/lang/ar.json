@@ -1,0 +1,43 @@
+{
+  "validation": {
+    "required": "الحقل {field} مطلوب",
+    "minlength": "الحقل {field} يجب ان يكون على الاقل {length} حرف",
+    "email": "الحقل {field} يجب ان يكون عنوان بريد صحيح",
+    "size": "الحقل {field} يجب ان يكون على الاقل {length} حرف",
+    "min_value": "الحقل {field} يجب ان يكون على الاقل {min}"
+  },
+  "fields": {
+    "name": "الاسم",
+    "email": "البريد الالكتروني",
+    "password": "كلمة المرور",
+    "title": "الاسم",
+    "category": "القسم",
+    "model": "الموديل",
+    "color": "اللون",
+    "brand": "العلامة التجارية",
+    "price_max": "السعر الاقصى",
+    "price_min": "السعر الادنى",
+    "image": "الصورة"
+  },
+  "title": "الاسم",
+  "category": "القسم",
+  "model": "الموديل",
+  "color": "اللون",
+  "brand": "العلامة التجارية",
+  "price_max": "السعر الاقصى",
+  "price_min": "السعر الادنى",
+  "home": "الصفحة الرئيسية",
+  "about": "من نحن",
+  "services": "خدماتنا",
+  "contact": "اتصل بنا",
+  "language": "اللغة",
+  "products": "منتجاتنا",
+  "categories": "الاقسام",
+  "users": "المستخدمين",
+  "add_product": "اضافة منتج",
+  "add": "اضافة",
+  "edit_product": "تعديل منتج",
+  "reset_filters": "اعادة تعيين الفلاتر",
+  "add_user": "اضافة مستخدم",
+  "edit_user": "تعديل مستخدم"
+}

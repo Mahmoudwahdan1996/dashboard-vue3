@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "tailwindcss-primeui";
+
+/* @plugin "";
+@import "tailwindcss-primeui"; */
+
+@custom-variant dark (&:where(.dark , .dark *));
+
+.custom-button {
+  @apply !border-zinc-500 rounded-lg !bg-zinc-100 !text-zinc-900 hover:!bg-zinc-200 dark:!bg-zinc-800 dark:!text-zinc-100 dark:hover:!bg-zinc-700
+}
