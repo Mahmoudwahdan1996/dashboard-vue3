@@ -21,7 +21,7 @@
 
 <script setup>
 import { ref } from "vue";
-import Header from "@/components/layout/Header.vue";
+import Header from "@/components/layout/header.vue";
 import SideBar from "@/components/layout/sideBar.vue";
 import DynamicDialog from "primevue/dynamicdialog";
 import ConfirmDialog from "primevue/confirmdialog";
